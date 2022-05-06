@@ -5,7 +5,7 @@ const conn = {
     Isconnected: false
 }
 
-export async function connectdb (){
+export async function DBConection (){
     if (conn.Isconnected) return
     const db = await connect(process.env.MONGODB_URL)
 

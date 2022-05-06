@@ -1,6 +1,6 @@
 import Nav from "./Nav"
 import Head from "next/head"
-const Cont =(props) =>{
+const Contanier =(props) =>{
     return (<div>
         <Head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"></link>
@@ -18,4 +18,4 @@ const Cont =(props) =>{
     </div>)
 }
 
-export default Cont
+export default Contanier

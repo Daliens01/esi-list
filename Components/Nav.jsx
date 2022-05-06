@@ -14,9 +14,7 @@ const Nav = ()=>{
     <Menu borderless style={{ padding: ".3rem"}} attached>
       <Container>
         <Menu.Item name="home">
-          <Link href="/">
-            <img src="https://i.ibb.co/hYPBkZb/logo.png" style={{width : '50px'}} />
-          </Link>
+            <img src="https://i.ibb.co/hYPBkZb/logo.png" style={{width : '50px'}}  onClick={()=> rer.push("/")}/>
         </Menu.Item>
         <Menu.Item>
        <Button basic onClick={()=> rer.push('/')} icon color="blue" labelPosition='right'  > inicio

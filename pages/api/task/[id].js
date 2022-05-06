@@ -1,6 +1,6 @@
-import { connectdb } from "../../../utils/conn"
+import { DBConection } from "../../../utils/DBConection"
 import Task from "../../../models/Task"
-    connectdb()
+DBConection()
 export default async (req, res) =>{
    const {method, body, query :{id}} = req
 

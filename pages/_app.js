@@ -5,6 +5,7 @@ import Con from "Components/Container"
 
 function MyApp({ Component, pageProps }) {
   return <Con>
+    <link rel="shortcut icon" href="/logo.ico" />
     <Component {...pageProps} />
 
   </Con>

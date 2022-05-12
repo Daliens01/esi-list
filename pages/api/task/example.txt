@@ -1,0 +1,97 @@
+ejemplo de ruta correcta
+[{
+  "_id": {
+    "$oid": "627183de51b4a2dce3cbebf2"
+  },
+  "titleLink": "LICENCIATURA SABATINO-QUIMICA",
+  "link": "https://docs.google.com/spreadsheets/d/1EE8F4QYBBu0l56D9MsPxHmQ-1rUlCshT/edit?usp=sharing&ouid=101224464136641050658&rtpof=true&sd=true",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1651606494576"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1651687402202"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6271870e51b4a2dce3cbec13"
+  },
+  "titleLink": "MAESTRIA-MIM",
+  "link": "https://docs.google.com/spreadsheets/d/11A2klwprksCQSKRr9eqwCdYIP7c_Fb3Y/edit?usp=sharing&ouid=101224464136641050658&rtpof=true&sd=true",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1651607310394"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1651687407599"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62718a1b51b4a2dce3cbec5e"
+  },
+  "titleLink": "MAESTRIA MSH-COATZA",
+  "link": "https://docs.google.com/spreadsheets/d/1IPRgTQq7tO2nLVtiEuqoA2GvmOuKbVri/edit?usp=sharing&ouid=101224464136641050658&rtpof=true&sd=true",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1651608091136"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1651687416204"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6272bfde91a01ba8820e168c"
+  },
+  "titleLink": "MAESTRIA MSH-MIMC-PUEBLA",
+  "link": "https://docs.google.com/spreadsheets/d/1IOUNnkfmzNjQUGGlcjpbTziFfOa7f-G8/edit?usp=sharing&ouid=101224464136641050658&rtpof=true&sd=true",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1651687390243"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1651687390243"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62740c7408b1ace154d7fef0"
+  },
+  "titleLink": "LICENCIATURA SABATINO-MECATRONICA",
+  "link": "https://docs.google.com/spreadsheets/d/1E56p0IGql4GTlpf8JIFGWWHyw2Q3mSy9/edit?usp=sharing&ouid=10122",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1651772532713"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1651772532713"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62758c0401f5771ee1f69d17"
+  },
+  "link": "asdasd",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1651870724522"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1651870724522"
+    }
+  }
+}]

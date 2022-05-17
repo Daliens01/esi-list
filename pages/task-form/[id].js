@@ -2,7 +2,8 @@ import Error from "next/error"
 
 export default function View({task, error}){
     const contador = task.link
-
+    console.log("link:")
+    console.log(task.link)
     if(error && error.statusCode) return <Error statusCode={error.statusCode} title={error.statusText}/>
     if (contador.length >= 100){
     return(
@@ -26,7 +27,7 @@ export default function View({task, error}){
 }
 
 export async function getServerSideProps({query: {id}}){
-   const res = await fetch(`https://esi-list.vercel.app/api/task${id}`)
+   const res = await fetch(`https://esi-list.vercel.app/api/task/${id}`)
     if(res.status === 200){
         const task = await res.json()
         return(

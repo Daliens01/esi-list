@@ -12,7 +12,7 @@ const taskSchema = new Schema ({
         trim: true,
         maxlength: [500]
     }
-},{
+},{ 
     timestamps: true,
     versionKey: false
 })

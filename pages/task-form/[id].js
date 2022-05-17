@@ -26,7 +26,7 @@ export default function View({task, error}){
 }
 
 export async function getServerSideProps({query: {id}}){
-   const res = await fetch(`http://localhost:3000/api/task/${id}`)
+   const res = await fetch(`https://esi-list.vercel.app/api/task${id}`)
     if(res.status === 200){
         const task = await res.json()
         return(

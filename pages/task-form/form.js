@@ -14,7 +14,7 @@ export default function LicForm(){
         const add = async () =>{
             
             try{
-                await fetch("http://localhost:3000/api/task", {
+                await fetch("https://esi-list.vercel.app/api/task", {
                     method: "POST", headers: {
                         "Content-Type" : "application/json"
                     }, body: JSON.stringify(newTask)

@@ -16,7 +16,7 @@ export default function View({task, error}){
     const Del = async () =>{
         const {id} = query
         try {
-            await fetch(`http://localhost:3000/api/task/${id}`, {method: "DELETE",})
+            await fetch(`https://esi-list.vercel.app/api/task${id}`, {method: "DELETE",})
         } catch (error) {
             
         }
@@ -38,7 +38,7 @@ export default function View({task, error}){
         const {id} = query
         
         try{
-            await fetch(`http://localhost:3000/api/task/${id}`, {
+            await fetch(`https://esi-list.vercel.app/api/task${id}`, {
                 method: "PUT", headers: {
                     "Content-Type" : "application/json"
                 }, body: JSON.stringify(isupdate)
@@ -81,7 +81,7 @@ export default function View({task, error}){
 }
 
 export async function getServerSideProps({query: {id}}){
-   const res = await fetch(`http://localhost:3000/api/task/${id}`)
+   const res = await fetch(`https://esi-list.vercel.app/api/task${id}`)
     if(res.status === 200){
         const task = await res.json()
         return(

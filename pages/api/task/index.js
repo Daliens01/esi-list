@@ -1,19 +1,39 @@
 import { DBConection } from "../../../utils/DBConection"
 import Task from "../../../models/Task"
+//import Cors from 'cors'
+
 DBConection()
+/**const cors = Cors({
+  methods: ['GET', 'HEAD'],
+})*/
 
+/** function runMiddleware(req, res, fn) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result)
+      }
 
+      return resolve(result)
+    })
+  })
+} */
 export default async  function handler(req, res) {
+ // await runMiddleware(req, res, cors)
   const tasks = await Task.find()
   
 
   switch (req.method){
     case "GET":
-      console.log(req.method, req.url)
+      
+      console.log("ver")
+      //console.log(req.method, req.url)
       res.status(200).json({tasks})
 
     break
     case "POST":
+      console.log("agregar")
+      console.log(req.body)
      const newTask = new Task(req.body)
      const saved = await newTask.save()
      res.status(201).json({saved})

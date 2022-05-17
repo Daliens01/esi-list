@@ -1,16 +1,13 @@
 import { DBConection } from "../../../utils/DBConection"
 import Task from "../../../models/Task"
 
-const cors = require("cors")
-
-cors()
 DBConection()
 export default async (req, res) =>{
    const {method, body, query :{id}} = req
 
    switch(method){
     case "GET":
-
+        
     const task = await Task.findById(id)
     if(!Task) return res.status(400).json("sin datos")
     res.status(200).json(task)
@@ -26,6 +23,7 @@ export default async (req, res) =>{
         if(!taskDel) return res.status(400).json("sin datos")
         res.status(204).json(taskDel)        
     break
+    
     default:
     return res.status(400).json("no soporta nada")
    }

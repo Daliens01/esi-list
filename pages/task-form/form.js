@@ -9,17 +9,19 @@ export default function LicForm(){
             console.log(newTask)
             e.preventDefault()
             await add()
+            console.log("proceso de agregar exitoso")
             await Router.push("/")
         }
         const add = async () =>{
             
-            try{
+            try{console.log("agregando")
                 await fetch("https://esi-list.vercel.app/api/task", {
-                    method: "POST", headers: {
+                    method: "POST", headers: { 'Accept': 'application/json',
                         "Content-Type" : "application/json"
                     }, body: JSON.stringify(newTask)
                 })
             }catch (error){
+                console.error("error al agregar")
                 console.error(error)
             }
         }

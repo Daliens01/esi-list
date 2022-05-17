@@ -3,7 +3,7 @@ import "./pages/api/task"
 const nextConfig = {
   reactStrictMode: true,
 }
-module.exports = {
+const cors = {
   async rewrites() {
       return [
         {
@@ -13,4 +13,4 @@ module.exports = {
       ]
     },
 };
-module.exports = nextConfig
+module.exports = nextConfig, cors

@@ -47,7 +47,7 @@ return(
 
 export const getServerSideProps = async (ctx) =>{
 
-  const res = await fetch("https://esi-list.vercel.app/api/task")
+  const res = await fetch("https://esi-list.vercel.app/api/task/")
   const task = await res.json()
 
   return {

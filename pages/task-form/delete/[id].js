@@ -16,8 +16,11 @@ export default function View({task, error}){
     const Del = async () =>{
         const {id} = query
         try {
-            console.error(id)
-            await fetch(`https://esi-list.vercel.app/api/task/${id}`, {method: "DELETE",})
+            
+            await fetch(`https://esi-list.vercel.app/api/task/${id}`, {
+                method: "DELETE",
+                headers: { "Access-Control-Allow-Origin": "https://esi-list.vercel.app","server" : "Vercel",
+                "Content-Type" : "application/json"}, body: JSON.stringify(isdelete)})
         } catch (error) {
             console.error("error de eliminar")
             console.error(error)
@@ -25,23 +28,25 @@ export default function View({task, error}){
        
     }
 
-    const handleDelete =()=>{
+    const handleDelete = async(e)=>{
+        e.preventDefault()
         setIsdelete(true)
-        Del()
+        await Del()
         close()
-        push("/")
+        await push("/")
     }
     const handleUp = async (e) =>{
-
+        e.preventDefault()
         await update()
-        push("/")
+        await push("/")
     }
     const update = async () =>{
         const {id} = query
         
         try{
             await fetch(`https://esi-list.vercel.app/api/task/${id}`, {
-                method: "PUT", headers: {
+                method: "PUT", headers: { "Access-Control-Allow-Origin": "https://esi-list.vercel.app", "server" : "Vercel", 
+                "strict-transport-security" : "max-age=63072000; includeSubDomains; preload",
                     "Content-Type" : "application/json"
                 }, body: JSON.stringify(isupdate)
             })

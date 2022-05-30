@@ -2,6 +2,7 @@ import Error from "next/error"
 import {Button, Grid, Form, Confirm,  Icon} from "semantic-ui-react"
 import  {useState}  from "react";
 import {useRouter}  from "next/router";
+import { headers } from "next.config";
 
 export default function View({task, error}){
     const [first, setfirst] = useState(false)
@@ -16,34 +17,38 @@ export default function View({task, error}){
     const Del = async () =>{
         const {id} = query
         try {
-            await fetch(`https://esi-list.vercel.app/api/task/${id}`, {method: "DELETE",})
+            await fetch(`https://api-daliens01.vercel.app/api/options/${id}`, {method: "DELETE",})
         } catch (error) {
             
         }
        
     }
 
-    const handleDelete =()=>{
+    const handleDelete = async(e)=>{
+        e.preventDefault()
         setIsdelete(true)
-        Del()
+        await Del()
         close()
-        push("/")
+        await push("/")
     }
     const handleUp = async (e) =>{
-
+        e.preventDefault()
         await update()
-        push("/")
+        await push("/")
     }
     const update = async () =>{
         const {id} = query
         
         try{
-            await fetch(`https://esi-list.vercel.app/api/task/${id}`, {
-                method: "PUT", headers: {
+            await fetch(`https://api-daliens01.vercel.app/api/options/${id}`, {
+                method: "PUT", headers: { 
                     "Content-Type" : "application/json"
                 }, body: JSON.stringify(isupdate)
             })
+
+
         }catch (error){
+            console.error("error de actualizar")
             console.error(error)
         }
     }
@@ -81,7 +86,7 @@ export default function View({task, error}){
 }
 
 export async function getServerSideProps({query: {id}}){
-   const res = await fetch(`https://esi-list.vercel.app/api/task/${id}`)
+   const res = await fetch(`https://api-daliens01.vercel.app/api/options/${id}`)
     if(res.status === 200){
         const task = await res.json()
         return(
@@ -95,7 +100,7 @@ export async function getServerSideProps({query: {id}}){
             props: {
                 error:{
                     statusCode: res.status,
-                    statusText: "Identificador invalido"
+                    statusText: "No se pudo leer el identificador"
                 }
             }
         }

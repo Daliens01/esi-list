@@ -6,7 +6,6 @@ export default function LicForm(){
 
         const [newTask, setNewTask] = useState()
         const handleSubmit = async (e) =>{
-            console.log(newTask)
             e.preventDefault()
             await add()
             await Router.push("/")
@@ -14,11 +13,15 @@ export default function LicForm(){
         const add = async () =>{
             
             try{
-                await fetch("https://esi-list.vercel.app/api/task/", {
-                    method: "POST", headers: { "Access-Control-Allow-Origin": "https://esi-list.vercel.app",
+                await fetch("https://api-daliens01.vercel.app/api/options", {
+                    method: "POST", headers: { 
                         "Content-Type" : "application/json"
                     }, body: JSON.stringify(newTask)
-                })
+                }).then((response) => Promise.all([response.json(), response.headers])).then(([body, headers] )=>{
+                    const auth = headers.get("link")
+                    console.log(auth)
+                    console.log(body)
+            })
                 console.log("agregando")
             }catch (error){
                 console.error("error al agregar")

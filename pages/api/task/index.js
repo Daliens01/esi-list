@@ -1,6 +1,7 @@
 import { DBConection } from "../../../utils/DBConection"
 import Task from "../../../models/Task"
 import cors from 'cors'
+import NextCors from 'nextjs-cors'
 //import initMiddleware from "../../../lib/init-middleware"
 
 DBConection()
@@ -20,15 +21,21 @@ DBConection()
   })
 } */
 export default async  function handler(req, res) {
-  cors()
+  await NextCors(req, res, {
+    // Options
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    origin: '*',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+ });
   console.log("index api")
+  console.log(res)
   //await cors(req, res)
  // await runMiddleware(req, res, cors)
   const tasks = await Task.find()
   
-  switch (req.method){
+  switch (req.method === "OPTIONS"){
     case "GET":
-      
+      console.log(res)
       console.log("ver")
       //console.log(req.method, req.url)
       res.status(200).json({tasks})

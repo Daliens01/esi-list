@@ -1,15 +1,15 @@
-import { Button, Image, Card, Icon, Container, Grid } from "semantic-ui-react"
+import { Image, Card, Icon, Container, Grid } from "semantic-ui-react"
 import {push} from "next/router"
-
+import axios from "axios"
 export default function Home({task}) {
-  if (task.length) return (
-    CountData()
-  )
+  let count = task.length
+  console.log(count)
+  if (!count) return emptyData()
   return (
     <Container>
           <Card.Group itemsPerRow={3}>
           {
-                          task.tasks.map(tasks =>(
+                          task.map(tasks =>(
                           <Card key={tasks._id} className="ui link cards" >
                             <Image  alt="logo" src="https://www.toogit.com/uploads/ServicesAttachments/2020/04071116289599.png" 
                             onClick={()=> push(`/task-form/${tasks._id}`)}/>
@@ -29,10 +29,10 @@ export default function Home({task}) {
           }
           </Card.Group>
         </Container>
-  )
+  ) 
 }
 
-export  function CountData (){
+export const emptyData = () =>{
 return(
   <Grid centered  verticalAlign="center" columns="1" >
     <Grid.Row>
@@ -44,14 +44,17 @@ return(
   </Grid>
 )
 }
+ 
+export const getServerSideProps = async ({req, res}) =>{
 
-export const getServerSideProps = async (ctx) =>{
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
 
-  const res = await fetch("https://esi-list.vercel.app/api/task/")
-  const task = await res.json()
-
+  const task = await fetch("https://api-daliens01.vercel.app/api/options").then(task => task.json())
+  //https://esi-list.vercel.app/api/task/
   return {
     props: {task,}
   }
 }
-

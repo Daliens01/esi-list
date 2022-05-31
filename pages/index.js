@@ -1,31 +1,28 @@
-import { Image, Card, Icon, Container, Grid } from "semantic-ui-react"
-import {push} from "next/router"
-import axios from "axios"
+import { Image, Card, Icon, Container, Grid } from "semantic-ui-react";
+import {push} from "next/router";
 export default function Home({task}) {
-  let count = task.length
-  console.log(count)
+  let count = task.length;
   if (!count) return emptyData()
-  return (
+  return ( //muestra todas las listas en el menu principal de la aplicacion
     <Container>
           <Card.Group itemsPerRow={3}>
           {
-                          task.map(tasks =>(
-                          <Card key={tasks._id} className="ui link cards" >
-                            <Image  alt="logo" src="https://www.toogit.com/uploads/ServicesAttachments/2020/04071116289599.png" 
-                            onClick={()=> push(`/task-form/${tasks._id}`)}/>
-                            <Card.Content>  
-                              <Card.Header>
-                              {tasks.titleLink}
-                              </Card.Header>
-                              <i>Enlace de Google Drive</i>
-                            </Card.Content>
-                            <Card.Header extra style={{padding: '10px'}}> 
-                              <span className="right floated"> 
-                              <Icon className="edit outline" onClick={()=> push(`/task-form/delete/${tasks._id}`)} size='large'/>
-                              </span>
-                            </Card.Header>
-                          </Card>
-                        ))
+            task.map(tasks =>(
+            <Card key={tasks._id} className="ui link cards" >
+            <Image  alt="logo" src="https://www.toogit.com/uploads/ServicesAttachments/2020/04071116289599.png" 
+            onClick={()=> push(`/task-form/${tasks._id}`)}/>
+            <Card.Content>  
+            <Card.Header>
+            {tasks.titleLink}
+            </Card.Header>
+            <i>Enlace de Google Drive</i>
+            </Card.Content>
+            <Card.Header extra style={{padding: '10px'}}> 
+             <span className="right floated"> 
+            <Icon className="edit outline" onClick={()=> push(`/task-form/options/${tasks._id}`)} size='large'/>
+            </span>
+            </Card.Header>
+            </Card>))
           }
           </Card.Group>
         </Container>
@@ -45,16 +42,8 @@ return(
 )
 }
  
-export const getServerSideProps = async ({req, res}) =>{
-
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
-
+export const getServerSideProps = async ({ctx}) =>{
   const task = await fetch("https://api-daliens01.vercel.app/api/options").then(task => task.json())
   //https://esi-list.vercel.app/api/task/
-  return {
-    props: {task,}
-  }
+  return { props: {task,}}
 }

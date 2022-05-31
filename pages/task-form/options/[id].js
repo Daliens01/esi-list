@@ -65,10 +65,10 @@ export default function View({task, error}){
                                 <option value="MAESTRIA MSH-COATZA">MAESTRIA MSH COATZA</option>
                                 <option value="MAESTRIA MSH-MIMC-PUEBLA">MAESTRIA MSH-MIMC PUEBLA</option>
                         </select> 
-                        <Form.Input  label ="Enlace" placeholder="Enlace" name="link" onChange={handleChange}
+                        <Form.Input  label ="Enlace" placeholder="Enlace" name="link" onChange={handleChange} 
                         required pattern="https?://docs.google.com/spreadsheets/d/.*/.*" 
                         title="Debe ingresar un link de Google Drive" 
-                        maxlength="100" style={{"height":"60px"}} />
+                        maxlength="100" style={{"height":"60px"}} defaultValue={task.link} />
                         <Button  type="submit" color="green" style={{'float' : 'left'}} icon 
                         labelPosition='right' >Actualizar <Icon name="edit outline"  /></Button>
                    </Form>    

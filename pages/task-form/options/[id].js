@@ -54,7 +54,7 @@ export default function View({task, error}){
     return(
         <Grid centered verticalAlign="middle" columns="3" style={ {height: "50%"}}>
             <Grid.Row>
-                <Grid.Column>
+                <Grid.Column id="formGrid">
                     <h1>Editar {task.titleLink} </h1>
                    <Form onSubmit={handleUp} method="POST">
                         <select  placeholder="Seleccione el tipo de enlace" onChange={handleChange} required name="titleLink">

@@ -4,7 +4,6 @@ import Router from "next/router";
 
 //Agrega un link a la base de datos para poder ser vista en el menu principal de la aplicacion
 export default function LicForm(){
-
         const [newTask, setNewTask] = useState();
         const handleSubmit = async (e) =>{
             e.preventDefault();
@@ -30,11 +29,11 @@ export default function LicForm(){
         const handleChange = (e) => setNewTask({...newTask, [e.target.name] : e.target.value}  );
 
     return (
-        <Grid centered verticalAlign="middle" columns="3" style={ {height: "50%"}}>
+        <Grid centered verticalAlign="middle" columns="3" >
             <Grid.Row>
-                <Grid.Column>
+                <Grid.Column id="formGrid">
                     <h1>AGREGAR ENLACE </h1>
-                   <Form  onSubmit={handleSubmit} method="POST">
+                   <Form  onSubmit={handleSubmit} method="POST" >
                           <select  placeholder="Seleccione el tipo de enlace" onChange={handleChange} required name="titleLink">
                           <option disabled selected>Seleccione el tipo de enlace</option>
                                 <option value="LICENCIATURA SABATINO-QUIMICA">LICENCIATURA SABATINO-QUIMICA</option>
@@ -47,7 +46,7 @@ export default function LicForm(){
                         required pattern="https?://docs.google.com/spreadsheets/d/.*/.*" 
                         title="Debe ingresar un link de Google Drive" 
                         maxlength="100" style={{"height":"60px"}} />
-                        <Button type="submit" primary> Guardar</Button>
+                        <Button type="submit" name="button" primary> Guardar</Button>
                    </Form>
                 </Grid.Column>
             </Grid.Row>

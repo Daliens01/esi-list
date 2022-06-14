@@ -14,3 +14,80 @@ a {
 * {
   box-sizing: border-box;
 }
+#iframeContainer{
+  position:absolute; 
+  top:10%; 
+  left:0;
+  width: 100%;
+  height: 90%;
+}
+iframe{
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+#logo{
+  width : 50px
+}
+#logo:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+	
+}
+#icon:hover{
+  color: green;
+}
+#title:hover{
+  color: #4985b5;
+}
+
+#formGrid{width: 50%;}
+/* starting dark mode */
+.dark-mode{
+  background-color: black;
+  color: green;
+  
+} 
+#lista{
+ border-radius: 5px;
+}
+ /* #home{
+  background-color: #1c1c1c;
+  color: green;
+} 
+ #lista{
+  color: white;
+  border:1px solid white;
+  border-radius: 7px;
+}  */
+
+/* finishing dark mode */
+
+/* mobile views */
+@media (max-width:800px) {
+  #card {
+    width: 40%;
+  }
+  #title{
+   font-size: 10px;
+  }
+  #icon{
+    width: 20px;
+  }
+  i{
+    font-size: 5px;
+  }
+  
+  /* #agregar{
+    width: 10%;
+  }
+  */
+  iframe{
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+  #formGrid{width: 100%;}
+  #home{width: 200%;}
+}

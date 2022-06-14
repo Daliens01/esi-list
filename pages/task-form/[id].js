@@ -6,8 +6,8 @@ export default function View({task, error}){
     if (contador.length >= 100){
         // Retorna la lista seleccionada de excel guardadas en Google Drive dentro de un iframe
     return(
-        <div> 
-            <iframe src={task.link} style={{ 'margin' : 0,'border': 'none', 'height': '770px', 'width': '100vw'} } />
+        <div id="iframeContainer"> 
+            <iframe src={task.link}  />
         </div>
     )}else{ // Si la lista no coincide con el patron de un enlace de excel en Google Drive, te devuelve el siguiente mensaje
         return(

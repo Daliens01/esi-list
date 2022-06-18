@@ -7,14 +7,14 @@ export default function Home({task}) {
     <Container>
           <Card.Group id="cardGroup" itemsPerRow={3}>
           {
-            task.map(tasks =>(
+      task.map(tasks =>(
             <Card id="card" key={tasks._id} className="ui link cards" >
             <Image  alt="logo" src="https://www.toogit.com/uploads/ServicesAttachments/2020/04071116289599.png" 
-            onClick={()=> push(`/task-form/${tasks._id}`)}/>
-            <Card.Content>  
+             onClick={()=> push(`/task-form/${tasks._id}`)}/>
+            <Card.Content  onClick={()=> push(`/task-form/${tasks._id}`)}>  
             <Card.Header>
-            <a id="title" onClick={()=> push(`/task-form/${tasks._id}`)}>{tasks.titleLink}</a>
-            </Card.Header>
+            <a id="title" >{tasks.titleLink}</a>
+            </Card.Header >
             <i>Enlace de Google Drive</i>
             </Card.Content>
             <Card.Header extra style={{padding: '10px'}}> 

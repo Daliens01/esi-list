@@ -17,7 +17,8 @@ export default function Home({task}) {
             </Card.Header >
             <i>Enlace de Google Drive</i>
             </Card.Content>
-            <Card.Header extra style={{padding: '10px'}} onClick={()=> push(`/task-form/${tasks._id}`)}> 
+            <Card.Header extra id="editIcon"
+            onClick={()=> push(`/task-form/${tasks._id}`)}> 
              <span className="right floated"> 
             <Icon id="icon" className="edit outline" onClick={()=> push(`/task-form/options/${tasks._id}`)} size='large'/>
             </span>

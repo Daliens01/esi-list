@@ -35,18 +35,24 @@ iframe{
   border-radius: 7px;
 	
 }
+#icon{
+  transition: 0.25s;
+}
 #icon:hover{
   color: green;
+}
+#title{
+  transition: 0.25s;
 }
 #title:hover{
   color: #4985b5;
 }
 
 #formGrid{width: 50%;}
-#card { height: 300px;
+#card { height: 300px; cursor: pointer; transition: 0.30s;
 }
 #editIcon{
-  width: 16%;position:fixed;margin:70% 85%;padding: 10px; 
+  width: 16%;position: absolute;margin:70% 85%;padding: 10px;  
 }
 /* starting dark mode */
 .dark-mode{

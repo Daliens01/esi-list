@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import { Radio, Button, Icon, Menu, Container, Dropdown } from "semantic-ui-react";
 
 const Nav = ()=>{
+  
  const ruta = useRouter();
- 
     return(
       <div > 
         <Menu borderless style={{ padding: ".3rem"}} attached id="home" >
@@ -14,13 +14,13 @@ const Nav = ()=>{
             <Menu.Item>
                 <Dropdown id="lista" item text="Ver listas" style={{width:'120px', 'border':'1px solid #444'}}>
             <Dropdown.Menu>
-                      <Dropdown  item text="LICENCIATURA">
+                      <Dropdown id="lic"  item text="LICENCIATURA">
                      <Dropdown.Menu>
-                            <Dropdown.Item icon="globe" onClick={()=> ruta.push('../../task-form/627bef7b4a8163d612d3b7a3')} text="SABATINO-MECATRONICA" />
+                            <Dropdown.Item id="lic2" icon="globe" onClick={()=> ruta.push('../../task-form/627bef7b4a8163d612d3b7a3')} text="SABATINO-MECATRONICA" />
                             <Dropdown.Item icon="globe" onClick={()=> ruta.push('../../task-form/627bec884a8163d612d3b799')} text="SABATINO-QUIMICA" />
                            </Dropdown.Menu>
                   </Dropdown>
-                  <Dropdown item text="MAESTRIAS">
+                  <Dropdown id="master" item text="MAESTRIAS">
                     <Dropdown.Menu>
                       <Dropdown.Item icon="globe" onClick={()=> ruta.push('../../task-form/627befa54a8163d612d3b7aa')} text="COATZA MIM" />
                       <Dropdown.Item icon="globe" onClick={()=> ruta.push('../../task-form/62851a09a243f30ccaff49e0')} text="MSH-COATZA" />
@@ -50,6 +50,4 @@ const Nav = ()=>{
         
      </div>)
 }
-
-
 export default Nav
